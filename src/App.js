@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  const handleClick= () => {
+    setCount(count+1);
+  } 
+  const resetCount= () => {
+    setCount(0);
+  } 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+      <h1>My Counter App</h1>
+      <div className='content'>
+      <h4>{count}</h4>
+      <button className='btn btn-primary' onClick={handleClick}>Increase Count</button>
+      </div>
+      <div className='col'>
+      <button className='btn btn-danger' onClick={resetCount}>Reset Count</button>
+    
+      </div>
+    
+     
     </div>
   );
 }
